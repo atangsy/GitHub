@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript</title>
+</head>
+<body>
+<label>请输入北京的天气质量<input id="aqi-input" type="text"></label>
+<button id="button" >确认</button>
+<span id="aqi-display">nothing</span>
+<script type="text/javascript">
+    (function(){
+        var $=function(id){
+            return document.getElementById(id);
+        };
+        var handle=function(){
+            var num=parseInt($("aqi-input").value);
+            if(!isNaN(num)&&(num>0)&&(num<=10000)){
+                $("aqi-display").innerHTML=num;
+            }else{
+                alert($("aqi-input").value+" not effective!")
+            }
+        };
+        $("button").onclick=function(){
+            handle();
+        };
+        $("aqi-input").onkeyup=function(event){
+            if(event.keyCode==13){
+                handle();
+            }
+        };
+    })();
+</script>
+</body>
+</html>
